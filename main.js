@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from "redux";
 
 import createSagaMiddleWare from "redux-saga";
 
-import { helloSaga } from "./sagas";
+import rootSaga from "./sagas";
 
 const sagaMiddleWare = createSagaMiddleWare();
 
@@ -15,7 +15,7 @@ import reducer from "./reducers";
 
 const store = createStore(reducer, applyMiddleware(sagaMiddleWare));
 
-sagaMiddleWare.run(helloSaga);
+sagaMiddleWare.run(rootSaga);
 
 const action = (type) => store.dispatch({ type });
 
